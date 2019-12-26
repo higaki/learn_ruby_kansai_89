@@ -6,12 +6,12 @@ using System.Linq;
 
 class RubyKansai
 {
-	static void Main()
-	{
-		var a = new[]{1, 2, 3, 5};
+    static void Main()
+    {
+        var a = new[]{1, 2, 3, 5};
 
-		var result = a.Sum();
+        var result = a.Sum();
 
-		Console.WriteLine($"{result}");
-	}
+        Console.WriteLine($"{result}");
+    }
 }

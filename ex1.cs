@@ -7,12 +7,12 @@ using System.Linq;
 
 class RubyKansai
 {
-	static void Main()
-	{
-		var a = new[]{1, 2, 3, 5};
+    static void Main()
+    {
+        var a = new[]{1, 2, 3, 5};
 
-		var result = a.Select(i => i * 2); // => [2, 4, 6, 10]
+        var result = a.Select(i => i * 2); // => [2, 4, 6, 10]
 
-		Console.WriteLine($"[{string.Join(", ", result)}]");
-	}
+        Console.WriteLine($"[{string.Join(", ", result)}]");
+    }
 }

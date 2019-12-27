@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 // 与えられた文字列から文字の出現回数を数えてみよう。
 
@@ -11,14 +10,14 @@ class RubyKansai
     static void Main(string[] args)
     {
         var result = args.Read()                    // ファイル内容の配列
-            .Select(s => Regex.Matches(s, ".").ToEnumerable())
-            .Aggregate((ws, w) => ws.Concat(w))     // 全ファイルの文字配列
-            .GroupBy(w => w)                        // 単語ごとにまとめる
-            .OrderByDescending(ws => ws.Count())    // 頻度の降順に整列
-            .ThenBy(ws => ws.Key);                  // 単語の昇順に整列
+            .Select(s => s.Chars())
+            .Aggregate((cs, c) => cs.Concat(c))     // 全ファイルの文字配列
+            .GroupBy(c => c)                        // 文字ごとにまとめる
+            .OrderByDescending(cs => cs.Count())    // 頻度の降順に整列
+            .ThenBy(cs => cs.Key);                  // 文字の昇順に整列
 
-        foreach (var w in result)
-            Console.WriteLine($"{w.Count(),7} {w.Key}");
+        foreach (var c in result)
+            Console.WriteLine($"{c.Count(),7} {c.Key}");
     }
 }
 
@@ -32,9 +31,9 @@ public static class RubyLikeExtensions
         }
     }
 
-    public static IEnumerable<string> ToEnumerable(this MatchCollection matches)
+    public static IEnumerable<char> Chars(this string s)
     {
-        foreach (Match s in matches)
-            yield return s.Value;
+        foreach (var c in s)
+            yield return c;
     }
 }

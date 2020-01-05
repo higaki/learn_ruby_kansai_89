@@ -18,15 +18,6 @@ static string read(const string& fn)
     return string(beg, end);
 }
 
-static vector<CHAR_REC_T>&
-m2v(const CHAR_CNT_T& m, vector<CHAR_REC_T>& v)
-{
-    transform(
-	m.begin(), m.end(), back_inserter(v),
-	[](const CHAR_REC_T i) -> CHAR_REC_T {return i;});
-    return v;
-}
-
 static vector<CHAR_REC_T>& sort(vector<CHAR_REC_T>& v)
 {
     sort(v.begin(), v.end(),
@@ -58,7 +49,9 @@ int main(int argc, const char** argv)
     }
 
     vector<CHAR_REC_T> result;
-    sort(m2v(tab, result));
+    transform(tab.begin(), tab.end(), back_inserter(result),
+	      [](const CHAR_REC_T i) -> CHAR_REC_T {return i;});
+    sort(result);
 
     for (auto datum = result.begin(); datum != result.end(); ++datum)
 	cout << format("%7d", datum->second) << " " << datum->first << endl;

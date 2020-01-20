@@ -11,7 +11,7 @@ class RubyKansai
     static void Main(string[] args)
     {
         var result = args.Read()                    // ファイル内容の配列
-            .Select(s => Regex.Matches(s, "\\w{1,}").ToEnumerable())
+            .Select(s => Regex.Matches(s, "\\w+").ToEnumerable())
             .Aggregate((ws, w) => ws.Concat(w))     // 全ファイルの単語列
             .GroupBy(w => w)                        // 単語ごとにまとめる
             .OrderByDescending(ws => ws.Count())    // 頻度の降順に整列

@@ -42,11 +42,11 @@ string format(const string& format, ARGS ... args)
 int main(int argc, const char** argv)
 {
     WORD_CNT_T tab;
+    regex re(R"(\w+)");
 
     while (--argc > 0) {
 	auto buf = read(*++argv);
 	smatch m;
-	regex re(R"(\w+)");
 	while (regex_search(buf, m, re)) {
 	    tab[m.str()] += 1;
 	    buf = m.suffix();

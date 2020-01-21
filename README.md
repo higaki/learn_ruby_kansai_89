@@ -26,7 +26,7 @@ result              # => [1, 3, 5]
 ````
 
 ### 演習問題3
-`Enumerable#inject` を使わずに Array の要素を合計してみよう。
+`Enumerable#inject` を使わずに Array の総乗を求めよう。
 
 ````ruby
 a = [1, 2, 3, 5]
@@ -34,13 +34,13 @@ a = [1, 2, 3, 5]
 result = 0
 a.each do |i|
     ...
-result              # => 11
+result              # => 30
 ````
 
 ### 演習問題4
 * `Enumerable#map` を使って Array の各要素を 2倍してみよう。
 * `Enumerable#select` を使って Array から奇数の要素だけを抽出してみよう。
-* `Enumerable#inject` を使って Array の要素を合計してみよう。
+* `Enumerable#inject` を使って Array の総乗を求めよう。
 
 ````ruby
 a = [1, 2, 3, 5]

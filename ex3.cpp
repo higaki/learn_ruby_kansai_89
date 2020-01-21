@@ -8,7 +8,9 @@ int main()
 {
     vector<int> a = {1, 2, 3, 5};
 
-    auto result = accumulate(a.begin(), a.end(), 0);
+    auto result = accumulate(
+	a.begin(), a.end(), 1,
+	[](int s, int i) -> int {return s * i;});
 
     cout << result << endl;
 

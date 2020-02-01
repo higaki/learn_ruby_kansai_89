@@ -9,7 +9,7 @@
 	     (word-count (assoc word result)))
 	(if word-count
 	    (setcdr word-count (1+ (cdr word-count)))
-	  (add-to-list 'result (cons word 1)))))
+	  (add-to-list 'result `(,word . 1)))))
     (sort result (lambda (l r)
 		   (or (> (cdr l) (cdr r))
 		       (and (= (cdr l) (cdr r))

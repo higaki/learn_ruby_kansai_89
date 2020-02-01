@@ -11,7 +11,7 @@
 	     (char-count (assoc char result)))
 	(if char-count
 	    (setcdr char-count (1+ (cdr char-count)))
-	  (add-to-list 'result (cons char 1))))
+	  (add-to-list 'result `(,char . 1))))
       (setq begin (point))
       (forward-char 1)
       (setq end (point)))

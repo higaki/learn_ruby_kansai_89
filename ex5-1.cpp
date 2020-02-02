@@ -23,9 +23,10 @@ static vector<WORD_REC_T>& sort(vector<WORD_REC_T>& v)
 {
     sort(v.begin(), v.end(),
 	 [](const WORD_REC_T& lhs,const WORD_REC_T& rhs) -> bool {
-    	     return lhs.second > rhs.second
-		 ? true
-		 : lhs.second < rhs.second ? false : lhs.first < rhs.first;
+	     if (lhs.second == rhs.second)
+		 return lhs.first < rhs.first;
+	     else
+		 return lhs.second > rhs.second;
 	 });
     return v;
 }
